@@ -1,5 +1,5 @@
 package DiscountHandling_strategy;
-
+import Order.WorkFlow_Template.Order;
 public interface DiscountStrategy {
-    double calculateDiscount(double amount);
+    public double calculateDiscount(Order order);
 }

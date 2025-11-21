@@ -1,27 +1,22 @@
 package Order.WorkFlow_Template;
-
-import Billing.BillGenerator;
-import DiscountHandling_strategy.DiscountStrategy;
-import Menu.MenuItemVariations_AbstractFactory.MenuItem;
-import PaymentBilling_strategy.PaymentStrategy;
-
 public abstract class OrderWorkflow {
-    protected MenuItem item;
-    protected DiscountStrategy discount;
-    protected PaymentStrategy payment;
-    protected BillGenerator billGen = new BillGenerator();
-
-    public final void processOrder() {
-        selectItem();
-        double total = calculateTotal();
-        total = discount.calculateDiscount(total);
-        billGen.generateBill(item.getName(), total);
-        payment.pay(total);
-        notifyKitchenAndWaiter();
-    }
-
-    protected abstract void selectItem();
-    protected abstract void notifyKitchenAndWaiter();
-
-    protected double calculateTotal() { return item.getPrice(); }
+protected Order order;
+public final void process() {
+displayMenu();
+selectItems();
+chooseOrderType();
+calculateTotals();
+applyDiscounts();
+processPayment();
+generateReceipt();
+placeOrder();
+}
+protected abstract void displayMenu();
+protected abstract void selectItems();
+protected abstract void chooseOrderType();
+protected void calculateTotals() { System.out.println("Totals: " + order.getTotal()); }
+protected void applyDiscounts() {};
+protected abstract void processPayment();
+protected void generateReceipt() { System.out.println("Receipt for order: " + order.getId()); }
+protected void placeOrder() {};
 }

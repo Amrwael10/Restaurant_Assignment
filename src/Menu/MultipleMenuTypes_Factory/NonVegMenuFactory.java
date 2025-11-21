@@ -1,10 +1,12 @@
 package Menu.MultipleMenuTypes_Factory;
-
-import Menu.MenuItemVariations_AbstractFactory.Burger;
 import Menu.MenuItemVariations_AbstractFactory.MenuItem;
-import Menu.MenuItemVariations_AbstractFactory.Pizza;
+import Menu.MenuItemVariations_AbstractFactory.MenuComponent;
 
-public class NonVegMenuFactory implements MenuFactory {
-    public MenuItem createPizza() { return new Pizza("Chicken Pizza", 8.5); }
-    public MenuItem createBurger() { return new Burger("Beef Burger", 7.5); }
+class NonVegMenuFactory implements MenuFactory {
+public MenuComponent createPizza(String variant) {
+if (variant.equalsIgnoreCase("eastern")) return new MenuItem("Eastern Chicken Pizza", 9.0);
+return new MenuItem("Chicken Classic Pizza", 8.5);
+}
+public MenuComponent createBurger(String variant) { return new MenuItem("Classic Burger", 6.0); }
+public MenuComponent createBeverage(String variant) { return new MenuItem("Soft Drink", 1.5); }
 }

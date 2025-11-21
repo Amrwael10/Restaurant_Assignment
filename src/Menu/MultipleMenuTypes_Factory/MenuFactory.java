@@ -1,7 +1,9 @@
 package Menu.MultipleMenuTypes_Factory;
-import Menu.MenuItemVariations_AbstractFactory.MenuItem;
+import Menu.MenuItemVariations_AbstractFactory.MenuComponent;
+
 
 public interface MenuFactory {
-    MenuItem createPizza();
-    MenuItem createBurger();
+MenuComponent createPizza(String variant);
+MenuComponent createBurger(String variant);
+MenuComponent createBeverage(String variant);
 }

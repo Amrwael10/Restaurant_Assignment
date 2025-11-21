@@ -3,19 +3,19 @@ package Menu.MenuItemVariations_AbstractFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Menu implements MenuItem{
+public class Menu implements MenuComponent{
     private final String name;
-    private final List<MenuItem> menuItems = new ArrayList<>();
+    private final List<MenuComponent> menuItems = new ArrayList<>();
 
     public Menu(String name) {
         this.name = name;
     }
 
-    public void addItem(MenuItem item) {
+    public void addItem(MenuComponent item) {
         menuItems.add(item);
     }
 
-    public void removeItem(MenuItem item) {
+    public void removeItem(MenuComponent item) {
         menuItems.remove(item);
     }
 
@@ -29,7 +29,7 @@ public class Menu implements MenuItem{
         throw new UnsupportedOperationException("no price");
     }
 
-    public List<MenuItem> getMenuItems() {
+    public List<MenuComponent> getMenuItems() {
         return menuItems;
     }
 }

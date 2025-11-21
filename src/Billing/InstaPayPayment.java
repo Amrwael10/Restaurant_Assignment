@@ -1,8 +1,9 @@
-package PaymentBilling_strategy;
+package Billing;
 
 public class InstaPayPayment implements PaymentStrategy{
     @Override
-    public void pay(double amount) {
+    public boolean pay(double amount) {
         System.out.println("Paid $" + amount + " in InstaPay.");
+        return true;
     }
 }

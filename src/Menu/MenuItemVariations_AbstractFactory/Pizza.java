@@ -1,6 +1,6 @@
 package Menu.MenuItemVariations_AbstractFactory;
 
-public class Pizza implements MenuItem {
+public class Pizza implements MenuComponent {
     private final String name;
     private final double price;
 

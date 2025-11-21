@@ -1,7 +1,7 @@
 package Order.Notification_Observer;
 import java.util.ArrayList;
 import java.util.List;
-
+import Order.WorkFlow_Template.*;
 public class OrderNotification {
     private final List<OrderObserver> observers;
 
@@ -12,8 +12,8 @@ public class OrderNotification {
     public void addObserver(OrderObserver observer) {
         observers.add(observer);
     }
-
-    public void notifyObservers(String orderDetails) {
-        observers.forEach(observer -> observer.update(orderDetails));
+    
+    public void notifyObservers(Order order) {
+        observers.forEach(observer -> observer.update(order));
     }
 }

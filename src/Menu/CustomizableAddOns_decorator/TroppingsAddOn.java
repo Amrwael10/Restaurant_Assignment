@@ -1,10 +1,11 @@
 package Menu.CustomizableAddOns_decorator;
-import Menu.MenuItemVariations_AbstractFactory.MenuItem;
+import Menu.MenuItemVariations_AbstractFactory.MenuComponent;
+
 
 public class TroppingsAddOn extends AddOn{
-    private MenuItem baseItem;
+    private MenuComponent baseItem;
 
-    public TroppingsAddOn(MenuItem baseItem) {
+    public TroppingsAddOn(MenuComponent baseItem) {
         super(baseItem);
     }
 

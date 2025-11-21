@@ -1,9 +1,11 @@
 package DiscountHandling_strategy;
 
+import Order.WorkFlow_Template.Order;
+
 public class MeatDiscount implements DiscountStrategy{
 
     @Override
-    public double calculateDiscount(double amount) {
-        return amount * 0.2; // 20% discount on meat
+    public double calculateDiscount(Order order) {
+        return order.getTotal()* 0.2; // 20% discount on meat
     }
 }
