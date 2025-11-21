@@ -1,6 +1,6 @@
 package Menu.MenuItemVariations_AbstractFactory;
 
 public interface MenuComponent {
-String getName();
-double getPrice();
+    String getName();
+    double getPrice();
 }

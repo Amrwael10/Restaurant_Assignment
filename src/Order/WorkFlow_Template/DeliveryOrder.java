@@ -1,14 +1,31 @@
 package Order.WorkFlow_Template;
+import Billing.CashPayment;
 import Order.Notification_Observer.OrderNotification;
 import Menu.MenuItemVariations_AbstractFactory.*;
 public class DeliveryOrder extends OrderWorkflow {
     private final OrderNotification notifier;
-    MenuComponent item;
+    public MenuComponent item;
     public DeliveryOrder(OrderNotification notifier) { this.notifier = notifier; }
 
     @Override
+    protected void displayMenu() {
+        System.out.println("Displaying menu for Delivery Order");
+    }
+
+    @Override
     protected void selectItems() {
-        System.out.println("Customer selected item for delivery: " + item.getName());
+        order = new OrderBuilder().addItem(new MenuItem("Sample",5)).build();
+    }
+
+    @Override
+    protected void chooseOrderType() {
+        order.setOrderType("DELIVERY");
+    }
+
+    @Override
+    protected void processPayment() {
+        billing.setPaymentStrategy(new CashPayment());
+        billing.checkout(order);
     }
 
     @Override
