@@ -1,5 +1,5 @@
 package Order.Notification_Observer;
-import Order.WorkFlow_Template.Order;
+import Order.WorkFlow_Template.OrderDetails;
 public interface OrderObserver {
-    void update(Order order);
+    void update(OrderDetails order);
 }

@@ -13,7 +13,7 @@ public class OrderNotification {
         observers.add(observer);
     }
     
-    public void notifyObservers(Order order) {
+    public void notifyObservers(OrderDetails order) {
         observers.forEach(observer -> observer.update(order));
     }
 }

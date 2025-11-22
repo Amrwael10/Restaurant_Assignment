@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class Order {
+public class OrderDetails {
     private UUID id = UUID.randomUUID();
     private List<MenuComponent> items = new ArrayList<>();
     private String orderType; // dine-in, delivery, takeaway

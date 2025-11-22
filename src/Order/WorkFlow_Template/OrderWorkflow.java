@@ -3,7 +3,7 @@ package Order.WorkFlow_Template;
 import Billing.BillGenerator;
 
 public abstract class OrderWorkflow {
-    protected Order order;
+    protected OrderDetails order;
     BillGenerator billing = new BillGenerator();
 
     public final void process() {

@@ -1,13 +1,13 @@
 package DiscountHandling_strategy;
-import Order.WorkFlow_Template.Order;
-
+import Order.WorkFlow_Template.OrderDetails;
 public class DiscountMethod {
     private final DiscountStrategy discount;
     public DiscountMethod(DiscountStrategy discount) {
         this.discount = discount;
     }
 
-    public double calculateDiscount(Order order) {
-        return discount.calculateDiscount(order.getTotal());
+    public double calculateDiscount(OrderDetails order) {
+        double d=discount.calculateDiscount(order);
+        return d;
     }
 }
