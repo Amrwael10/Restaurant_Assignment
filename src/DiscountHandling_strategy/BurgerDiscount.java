@@ -2,17 +2,15 @@ package DiscountHandling_strategy;
 import Menu.MenuItemVariations_AbstractFactory.MenuComponent;
 import Order.WorkFlow_Template.OrderDetails;
 
-public class MeatDiscount implements DiscountStrategy{
+public class BurgerDiscount implements DiscountStrategy{
 
     @Override
     public double calculateDiscount(OrderDetails order) {
         double discountAmount = 0.0;
         for (MenuComponent item : order.getItems()) {
-            // Check if the item name contains meat-related keywords
             String itemName = item.getName().toLowerCase();
-            if (itemName.contains("meat") || itemName.contains("beef") ||
-                    itemName.contains("lamb") || itemName.contains("steak")) {
-                discountAmount += item.getPrice() * 0.20; // 20% off meat items
+            if (itemName.contains("burger")) {
+                discountAmount += item.getPrice() * 0.15; // 15% off chicken items
             }
         }
         return discountAmount;

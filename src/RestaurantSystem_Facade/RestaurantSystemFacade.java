@@ -48,9 +48,14 @@ public class RestaurantSystemFacade {
         return switch (family.toLowerCase()) {
             case "veg" -> vegMenuFactory;
             case "kids" -> kidsMenuFactory;
-            case "noneg" -> nonVegMenuFactory;
+            case "nonveg" -> nonVegMenuFactory;  // FIXED: was "noneg"
             default -> null;
         };
+    }
+
+    // Facade method to notify staff (called when items are added)
+    public void notifyStaff(OrderDetails order) {
+        notifier.notifyObservers(order);
     }
 
     // Facade method to check out an order
@@ -60,8 +65,38 @@ public class RestaurantSystemFacade {
         boolean success = billGenerator.checkout(order);
 
         if (success) {
+            // Final notification at checkout
+            System.out.println("📢 Final order confirmation sent to Kitchen and Waiter!");
             notifier.notifyObservers(order);
         }
         return success;
+    }
+
+    // Display full menu
+    public void displayFullMenu() {
+        System.out.println("\n========== RESTAURANT MENU ==========");
+        System.out.println("\n--- VEGETARIAN MENU ---");
+        System.out.println("Pizzas: Veg Italian Pizza ($8.0), Veg Classic Pizza ($6.5)");
+        System.out.println("Burgers: Veg Burger ($5.0)");
+        System.out.println("Beverages: Soft Drink ($1.5)");
+
+        System.out.println("\n--- NON-VEGETARIAN MENU ---");
+        System.out.println("Pizzas: Eastern Chicken Pizza ($9.0), Chicken Classic Pizza ($8.5)");
+        System.out.println("Burgers: Classic Burger ($6.0)");
+        System.out.println("Beverages: Soft Drink ($1.5)");
+
+        System.out.println("\n--- KIDS MENU ---");
+        System.out.println("Pizzas: Kids Pizza ($4.0)");
+        System.out.println("Burgers: Kids Burger ($3.5)");
+        System.out.println("Beverages: Juice ($1.0)");
+
+        System.out.println("\n--- ADD-ONS (Pizza & Burgers) ---");
+        System.out.println("Extra Cheese (+$1.5)");
+        System.out.println("Extra Sauce (+$0.75)");
+        System.out.println("Extra Toppings (+$2.0)");
+
+        System.out.println("\n--- BEVERAGE FLAVORS ---");
+        System.out.println("Apple, Orange, Mango, Pineapple (No extra charge)");
+        System.out.println("=====================================\n");
     }
 }
