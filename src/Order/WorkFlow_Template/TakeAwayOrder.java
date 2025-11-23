@@ -1,12 +1,14 @@
 package Order.WorkFlow_Template;
-import Billing.CashPayment;
+import PaymentSystem_straegy.CashPayment;
 import Menu.MenuItemVariations_AbstractFactory.MenuItem;
 import Order.Notification_Observer.OrderNotification;
 
-public class TakeAwayOrder extends OrderWorkflow{
+public class TakeAwayOrder extends OrderWorkflow {
     private final OrderNotification notifier;
-    public MenuItem item;
-    public TakeAwayOrder(OrderNotification notifier) { this.notifier = notifier; }
+
+    public TakeAwayOrder(OrderNotification notifier) {
+        this.notifier = notifier;
+    }
 
     @Override
     protected void displayMenu() {
@@ -15,7 +17,9 @@ public class TakeAwayOrder extends OrderWorkflow{
 
     @Override
     protected void selectItems() {
-        order = new OrderBuilder().addItem(new MenuItem("Sample",5)).build();
+        order = new OrderBuilder()
+                .addItem(new MenuItem("Sample", 5))
+                .build();
     }
 
     @Override

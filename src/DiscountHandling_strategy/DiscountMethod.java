@@ -7,7 +7,6 @@ public class DiscountMethod {
     }
 
     public double calculateDiscount(OrderDetails order) {
-        double d=discount.calculateDiscount(order);
-        return d;
+        return discount.calculateDiscount(order);
     }
 }

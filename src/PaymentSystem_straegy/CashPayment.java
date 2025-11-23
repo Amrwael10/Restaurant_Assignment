@@ -1,4 +1,4 @@
-package Billing;
+package PaymentSystem_straegy;
 
 public class CashPayment implements PaymentStrategy {
     @Override
