@@ -3,7 +3,6 @@ import Menu.MenuItemVariations_AbstractFactory.MenuComponent;
 
 
 public class TroppingsAddOn extends AddOn{
-    private MenuComponent baseItem;
 
     public TroppingsAddOn(MenuComponent baseItem) {
         super(baseItem);
